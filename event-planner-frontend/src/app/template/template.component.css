@@ -1,0 +1,78 @@
+.sidenav-container {
+  height: 100vh;
+}
+.sidenav {
+  width: 240px;
+  background: linear-gradient(180deg, #880e4f 0%, #ad1457 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+.sidenav-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+.logo-icon {
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+  color: #f48fb1;
+}
+.logo-text {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+mat-nav-list a {
+  color: rgba(255,255,255,0.85) !important;
+  margin: 4px 8px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+mat-nav-list a:hover,
+mat-nav-list a.active-link {
+  background: rgba(255,255,255,0.15) !important;
+  color: white !important;
+}
+mat-nav-list mat-icon {
+  color: #f48fb1;
+}
+.sidenav-footer {
+  margin-top: auto;
+  padding: 12px 16px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.9);
+}
+.user-info mat-icon { color: #f48fb1; }
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+.user-name { font-size: 13px; font-weight: 500; }
+.user-role { font-size: 11px; opacity: 0.7; text-transform: uppercase; }
+.logout-btn { color: rgba(255,255,255,0.7); }
+.logout-btn:hover { color: white; }
+.top-toolbar {
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.toolbar-spacer { flex: 1 1 auto; }
+.toolbar-title { font-size: 14px; margin-right: 12px; color: #666; }
+.chip-admin { background: #fce4ec !important; color: #880e4f !important; font-size: 11px !important; }
+.chip-user  { background: #e3f2fd !important; color: #1565c0 !important; font-size: 11px !important; }
+.content { padding: 24px; background: #f5f5f5; min-height: calc(100vh - 64px); }

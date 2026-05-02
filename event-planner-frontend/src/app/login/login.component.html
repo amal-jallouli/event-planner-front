@@ -1,0 +1,36 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-icon">
+      <mat-icon>event</mat-icon>
+    </div>
+    <h1>Event Planner</h1>
+    <p class="subtitle">Connectez-vous à votre compte</p>
+
+    <div class="error-msg" *ngIf="errorMessage">
+      <mat-icon>error_outline</mat-icon> {{ errorMessage }}
+    </div>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="email" type="email" placeholder="admin@eventplanner.com" />
+      <mat-icon matSuffix>email</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Mot de passe</mat-label>
+      <input matInput [(ngModel)]="password" [type]="hide ? 'password' : 'text'" />
+      <button mat-icon-button matSuffix (click)="hide = !hide">
+        <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <button mat-raised-button class="login-btn" (click)="Login()" [disabled]="loading">
+      <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
+      <span *ngIf="!loading">Se connecter</span>
+    </button>
+
+    <p class="register-link">
+      Pas encore de compte ? <a routerLink="/register">S'inscrire</a>
+    </p>
+  </div>
+</div>

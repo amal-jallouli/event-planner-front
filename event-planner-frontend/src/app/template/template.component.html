@@ -1,0 +1,59 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav [(opened)]="opened" mode="side" class="sidenav">
+    <div class="sidenav-header">
+      <mat-icon class="logo-icon">event</mat-icon>
+      <span class="logo-text">EventPlanner</span>
+    </div>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link">
+        <mat-icon matListItemIcon>dashboard</mat-icon>
+        <span matListItemTitle>Dashboard</span>
+      </a>
+      <a mat-list-item routerLink="/events" routerLinkActive="active-link">
+        <mat-icon matListItemIcon>event_note</mat-icon>
+        <span matListItemTitle>Événements</span>
+      </a>
+      <a mat-list-item *ngIf="isAdmin()" routerLink="/categories" routerLinkActive="active-link">
+        <mat-icon matListItemIcon>category</mat-icon>
+        <span matListItemTitle>Catégories</span>
+      </a>
+      <a mat-list-item *ngIf="!isAdmin()" routerLink="/my-registrations" routerLinkActive="active-link">
+        <mat-icon matListItemIcon>how_to_reg</mat-icon>
+        <span matListItemTitle>Mes Inscriptions</span>
+      </a>
+    </mat-nav-list>
+
+    <div class="sidenav-footer">
+      <div class="user-info" *ngIf="currentUser">
+        <mat-icon>account_circle</mat-icon>
+        <div class="user-details">
+          <span class="user-name">{{ currentUser.name }}</span>
+          <span class="user-role">{{ currentUser.role }}</span>
+        </div>
+      </div>
+      <button mat-icon-button (click)="logout()" matTooltip="Déconnexion" class="logout-btn">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar class="top-toolbar">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="toolbar-spacer"></span>
+      <span class="toolbar-title">{{ currentUser?.name }}</span>
+      <mat-chip-listbox>
+        <mat-chip [class]="isAdmin() ? 'chip-admin' : 'chip-user'">
+          {{ isAdmin() ? 'Admin' : 'User' }}
+        </mat-chip>
+      </mat-chip-listbox>
+    </mat-toolbar>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

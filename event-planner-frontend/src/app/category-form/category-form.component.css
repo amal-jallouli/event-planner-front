@@ -1,0 +1,7 @@
+.form-container { min-width: 400px; }
+.form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px 0;
+}

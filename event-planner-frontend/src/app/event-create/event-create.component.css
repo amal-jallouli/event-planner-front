@@ -1,0 +1,32 @@
+.dialog-container { min-width: 600px; }
+.dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px 0;
+}
+.dialog-header h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 20px;
+  color: #880e4f;
+}
+.event-form { padding: 8px 0; }
+.form-row { margin-bottom: 4px; }
+.full-width { width: 100%; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.two-col mat-form-field { width: 100%; }
+.toggle-field {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  color: #555;
+  font-size: 14px;
+}
+.file-label { display: block; font-size: 13px; color: #666; margin-bottom: 8px; }
+.file-input { cursor: pointer; }
+.file-hint { font-size: 12px; color: #888; margin-left: 8px; }
+.save-btn { display: flex; align-items: center; gap: 8px !important; }
