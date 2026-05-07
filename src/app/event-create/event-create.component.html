@@ -1,0 +1,111 @@
+<div class="modal-wrap">
+  <div class="modal-header">
+    <h2>
+      <mat-icon>{{ isEdit ? 'edit' : 'add_circle' }}</mat-icon>
+      {{ isEdit ? 'Modifier l\'événement' : 'Nouvel événement' }}
+    </h2>
+    <button class="close-btn" (click)="close()"><mat-icon>close</mat-icon></button>
+  </div>
+
+  <mat-dialog-content>
+    <form [formGroup]="form" class="modal-form">
+      <div class="field">
+        <label>Titre *</label>
+        <mat-form-field appearance="outline" class="full-w">
+          <input matInput formControlName="title" placeholder="Nom de l'événement" />
+        </mat-form-field>
+      </div>
+
+      <div class="field">
+        <label>Description *</label>
+        <mat-form-field appearance="outline" class="full-w">
+          <textarea matInput formControlName="description" rows="3" placeholder="Description..."></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="row-2">
+        <div class="field">
+          <label>Date de début *</label>
+          <mat-form-field appearance="outline" class="full-w">
+            <input matInput [matDatepicker]="dp1" formControlName="start_date" placeholder="jj/mm/aaaa" />
+            <mat-datepicker-toggle matIconSuffix [for]="dp1"></mat-datepicker-toggle>
+            <mat-datepicker #dp1></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="field">
+          <label>Date de fin *</label>
+          <mat-form-field appearance="outline" class="full-w">
+            <input matInput [matDatepicker]="dp2" formControlName="end_date" placeholder="jj/mm/aaaa" />
+            <mat-datepicker-toggle matIconSuffix [for]="dp2"></mat-datepicker-toggle>
+            <mat-datepicker #dp2></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div class="field">
+          <label>Lieu *</label>
+          <mat-form-field appearance="outline" class="full-w">
+            <input matInput formControlName="place" placeholder="Adresse de l'événement" />
+            <mat-icon matSuffix>location_on</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="field">
+          <label>Capacité *</label>
+          <mat-form-field appearance="outline" class="full-w">
+            <input matInput formControlName="capacity" type="number" min="1" />
+            <mat-icon matSuffix>people</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div class="field">
+          <label>Catégorie *</label>
+          <mat-form-field appearance="outline" class="full-w">
+            <mat-select formControlName="category_id" placeholder="Choisir une catégorie">
+              <mat-option *ngFor="let cat of categories" [value]="cat.id">{{ cat.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="field">
+          <label>Statut *</label>
+          <mat-form-field appearance="outline" class="full-w">
+            <mat-select formControlName="status">
+              <mat-option value="actif">Actif</mat-option>
+              <mat-option value="archive">Archivé</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="toggle-row">
+        <span>Événement gratuit</span>
+        <mat-slide-toggle formControlName="is_free" color="primary"></mat-slide-toggle>
+      </div>
+
+      <div class="field" *ngIf="!form.get('is_free')?.value">
+        <label>Prix (DT)</label>
+        <mat-form-field appearance="outline" class="full-w">
+          <input matInput formControlName="price" type="number" min="0" />
+          <mat-icon matSuffix>payments</mat-icon>
+        </mat-form-field>
+      </div>
+
+      <div class="field">
+        <label>Image (optionnel)</label>
+        <input type="file" accept="image/*" (change)="onFileChange($event)" class="file-input" />
+        <span *ngIf="selectedFile" class="file-name">📎 {{ selectedFile.name }}</span>
+      </div>
+    </form>
+  </mat-dialog-content>
+
+  <div class="modal-footer">
+    <button class="btn-cancel" (click)="close()">Annuler</button>
+    <button class="btn-save" (click)="save()" [disabled]="form.invalid || loading">
+      <mat-spinner *ngIf="loading" diameter="18"></mat-spinner>
+      <mat-icon *ngIf="!loading">save</mat-icon>
+      <span>{{ isEdit ? 'Mettre à jour' : 'Créer' }}</span>
+    </button>
+  </div>
+</div>

@@ -1,27 +1,52 @@
-# EventPlannerFrontend
+# Event Planner - Frontend Angular 16
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+## Installation
 
-## Development server
+### 1. Créer un projet Angular (si pas déjà fait)
+```bash
+ng new event-planner-frontend --routing --style=css
+cd event-planner-frontend
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### 2. Copier les fichiers du ZIP dans le projet
+Remplacez les fichiers générés par ng new avec ceux du ZIP.
 
-## Code scaffolding
+### 3. Installer les dépendances
+```bash
+npm install @angular/material@^16.2.14 @angular/cdk@^16.2.14 @angular/animations@^16.1.0 @angular/fire@^7.6.1 firebase@^9.0.0 ng2-charts@^4.0.1 chart.js --legacy-peer-deps
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 4. Lancer le projet
+```bash
+ng serve
+```
+L'application sera disponible sur `http://localhost:4200`
 
-## Build
+## Configuration
+Le backend doit tourner sur `http://localhost:8000`
+Fichier de config: `src/app/environment.ts`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Comptes de test
+- Admin: `admin@eventplanner.com` / `password`
+- User:  `user@eventplanner.com` / `password`
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Structure
+```
+src/
+├── Models/              Interfaces TypeScript
+├── Services/            Services HTTP
+└── app/
+    ├── guards/          AuthGuard, AdminGuard
+    ├── interceptors/    TokenInterceptor (Bearer)
+    ├── login/           Page login (glass morphism)
+    ├── register/        Page inscription
+    ├── template/        Layout sidenav
+    ├── dashboard/       Stats + Charts (ng2-charts)
+    ├── event/           Liste événements + CRUD
+    ├── event-create/    Modal créer/modifier
+    ├── event-details/   Modal détails + inscription
+    ├── category/        Admin - Gestion catégories
+    ├── category-form/   Modal catégorie
+    ├── my-registrations/ Mes inscriptions (user)
+    └── confirm/         Dialog confirmation suppression
+```

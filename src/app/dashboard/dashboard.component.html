@@ -1,0 +1,41 @@
+<div class="page">
+  <div class="page-header">
+    <h1 class="page-title">Dashboard</h1>
+    <p class="page-subtitle">Vue d'ensemble de votre plateforme</p>
+  </div>
+  <div *ngIf="loading" class="loading"><mat-spinner diameter="44"></mat-spinner></div>
+  <div *ngIf="!loading">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon purple"><mat-icon>event_note</mat-icon></div>
+        <div class="stat-body"><div class="stat-value">{{ stats.total_events || 0 }}</div><div class="stat-label">Événements</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon blue"><mat-icon>label</mat-icon></div>
+        <div class="stat-body"><div class="stat-value">{{ stats.total_categories || 0 }}</div><div class="stat-label">Catégories</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon green"><mat-icon>how_to_reg</mat-icon></div>
+        <div class="stat-body"><div class="stat-value">{{ stats.total_registrations || 0 }}</div><div class="stat-label">Inscriptions</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon orange"><mat-icon>people</mat-icon></div>
+        <div class="stat-body"><div class="stat-value">{{ stats.total_users || 0 }}</div><div class="stat-label">Utilisateurs</div></div>
+      </div>
+    </div>
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h3 class="chart-title">Événements par Catégorie</h3>
+        <canvas baseChart [data]="pieChartData" [type]="pieChartType" [options]="pieChartOptions"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3 class="chart-title">Statut des Événements</h3>
+        <canvas baseChart [data]="doughnutChartData" [type]="doughnutChartType" [options]="doughnutChartOptions"></canvas>
+      </div>
+    </div>
+    <div class="chart-card chart-full">
+      <h3 class="chart-title">Inscriptions par Mois</h3>
+      <canvas baseChart [data]="barChartData" [type]="barChartType" [options]="barChartOptions"></canvas>
+    </div>
+  </div>
+</div>

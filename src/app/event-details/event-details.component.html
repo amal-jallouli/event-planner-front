@@ -1,0 +1,78 @@
+<div class="details-wrap">
+  <div class="details-header">
+    <div class="details-title-row">
+      <h2>{{ event.title }}</h2>
+      <span class="status-badge" [class.actif]="event.status === 'actif'">{{ event.status }}</span>
+    </div>
+    <button class="close-btn" (click)="close()"><mat-icon>close</mat-icon></button>
+  </div>
+
+  <mat-dialog-content>
+    <div class="details-grid">
+      <div class="detail-item">
+        <div class="detail-icon"><mat-icon>label</mat-icon></div>
+        <div>
+          <span class="detail-label">CATÉGORIE</span>
+          <span class="detail-value">{{ event.category?.name || '-' }}</span>
+        </div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-icon"><mat-icon>event</mat-icon></div>
+        <div>
+          <span class="detail-label">DATE DE DÉBUT</span>
+          <span class="detail-value">{{ event.start_date | date:'dd MMM yyyy' }}</span>
+        </div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-icon"><mat-icon>event_busy</mat-icon></div>
+        <div>
+          <span class="detail-label">DATE DE FIN</span>
+          <span class="detail-value">{{ event.end_date | date:'dd MMM yyyy' }}</span>
+        </div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-icon"><mat-icon>location_on</mat-icon></div>
+        <div>
+          <span class="detail-label">LIEU</span>
+          <span class="detail-value">{{ event.place }}</span>
+        </div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-icon"><mat-icon>people</mat-icon></div>
+        <div>
+          <span class="detail-label">CAPACITÉ</span>
+          <span class="detail-value">{{ event.registrations_count || 0 }} / {{ event.capacity }}</span>
+        </div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-icon"><mat-icon>payments</mat-icon></div>
+        <div>
+          <span class="detail-label">TARIF</span>
+          <span class="detail-value">{{ event.is_free ? 'Gratuit' : event.price + ' DT' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="description-block">
+      <span class="detail-label">DESCRIPTION</span>
+      <p>{{ event.description }}</p>
+    </div>
+
+    <div class="msg success" *ngIf="message && isRegistered">✅ {{ message }}</div>
+    <div class="msg info" *ngIf="message && !isRegistered">ℹ️ {{ message }}</div>
+  </mat-dialog-content>
+
+  <div class="details-footer">
+    <button class="btn-close" (click)="close()">Fermer</button>
+    <button *ngIf="!authService.isAdmin() && !isRegistered"
+      class="btn-register" (click)="register()" [disabled]="loading">
+      <mat-spinner *ngIf="loading" diameter="18"></mat-spinner>
+      <mat-icon *ngIf="!loading">how_to_reg</mat-icon>
+      <span *ngIf="!loading">S'inscrire</span>
+    </button>
+    <button *ngIf="!authService.isAdmin() && isRegistered"
+      class="btn-unregister" (click)="unregister()" [disabled]="loading">
+      <mat-icon>cancel</mat-icon> Se désinscrire
+    </button>
+  </div>
+</div>

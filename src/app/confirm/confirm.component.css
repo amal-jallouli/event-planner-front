@@ -1,0 +1,7 @@
+.confirm-wrap { padding: 28px; text-align: center; min-width: 340px; }
+.confirm-icon mat-icon { font-size: 52px; width: 52px; height: 52px; color: #f59e0b; }
+h3 { font-size: 18px; font-weight: 700; margin: 14px 0 8px; }
+p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+.confirm-actions { display: flex; gap: 12px; justify-content: center; margin-top: 24px; }
+.btn-cancel { padding: 10px 24px; background: none; border: 1.5px solid var(--border); border-radius: 8px; font-size: 14px; cursor: pointer; font-family: 'Inter', sans-serif; }
+.btn-delete { padding: 10px 24px; background: #ef4444; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; }

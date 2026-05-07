@@ -1,0 +1,27 @@
+.auth-wrapper { display: flex; min-height: 100vh; }
+.right-panel { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px; background: white; }
+.form-card { width: 100%; max-width: 420px; }
+.form-card h2 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+.form-subtitle { color: var(--text-muted); font-size: 14px; margin-bottom: 28px; }
+.alert-error { background: #fff5f5; border: 1px solid #feb2b2; color: #c53030; padding: 12px 16px; border-radius: var(--radius-sm); font-size: 14px; display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 7px; }
+.input-wrapper { position: relative; }
+.form-input { width: 100%; padding: 12px 16px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); font-size: 14px; font-family: 'Inter', sans-serif; outline: none; }
+.form-input:focus { border-color: var(--primary); }
+.form-input::placeholder { color: #b2bec3; }
+.toggle-pass { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--text-muted); }
+.btn-primary { width: 100%; padding: 13px; background: var(--gradient); color: white; border: none; border-radius: var(--radius-sm); font-size: 15px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Inter', sans-serif; margin-top: 8px; }
+.btn-primary:hover:not(:disabled) { opacity: 0.9; }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+.switch-link { text-align: center; font-size: 14px; color: var(--text-muted); margin-top: 18px; }
+.switch-link a { color: var(--primary); font-weight: 600; text-decoration: none; }
+.left-panel { flex: 1; background: var(--gradient); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 40px; color: white; text-align: center; }
+.brand-icon-lg { width: 90px; height: 90px; background: rgba(255,255,255,0.2); border-radius: 24px; display: flex; align-items: center; justify-content: center; margin-bottom: 28px; }
+.brand-icon-lg mat-icon { font-size: 44px; width: 44px; height: 44px; }
+.left-panel h2 { font-size: 26px; font-weight: 700; margin-bottom: 14px; }
+.left-panel p { opacity: 0.85; font-size: 15px; line-height: 1.6; max-width: 320px; margin-bottom: 40px; }
+.stats-row { display: flex; gap: 32px; }
+.stat-item { display: flex; flex-direction: column; align-items: center; }
+.stat-number { font-size: 28px; font-weight: 700; }
+.stat-label { font-size: 13px; opacity: 0.8; margin-top: 4px; }

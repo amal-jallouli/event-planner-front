@@ -1,0 +1,25 @@
+<div class="cform-wrap">
+  <div class="cform-header">
+    <h2>{{ isEdit ? 'Modifier la catégorie' : 'Créer une catégorie' }}</h2>
+    <button class="close-btn" (click)="close()"><mat-icon>close</mat-icon></button>
+  </div>
+
+  <div class="cform-body">
+    <form [formGroup]="form">
+      <label class="field-label">Nom de la catégorie</label>
+      <mat-form-field appearance="outline" style="width:100%">
+        <input matInput formControlName="name" placeholder="Ex: Technologie, Sport..." />
+        <mat-icon matSuffix>label</mat-icon>
+        <mat-error *ngIf="form.get('name')?.hasError('required')">Le nom est requis</mat-error>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div class="cform-footer">
+    <button class="btn-cancel" (click)="close()">Annuler</button>
+    <button class="btn-save" (click)="save()" [disabled]="form.invalid">
+      <mat-icon>save</mat-icon>
+      {{ isEdit ? 'Mettre à jour' : 'Créer' }}
+    </button>
+  </div>
+</div>

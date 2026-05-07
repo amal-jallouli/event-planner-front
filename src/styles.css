@@ -1,1 +1,158 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  background: #f5f7fa;
+  color: #2d3436;
+}
+
+:root {
+  --primary: #6c63ff;
+  --primary-dark: #5a52d5;
+  --primary-light: #ede9ff;
+  --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --bg: #f5f7fa;
+  --border: #e2e8f0;
+  --text: #2d3436;
+  --text-muted: #636e72;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 30px rgba(108,99,255,0.15);
+  --radius: 14px;
+  --radius-sm: 8px;
+}
+
+/* ── Tables ── */
+.mat-mdc-table { background: white !important; }
+.mat-mdc-header-cell { color: #636e72 !important; font-weight: 600 !important; font-size: 13px !important; background: white !important; }
+.mat-mdc-cell { color: #2d3436 !important; font-size: 14px !important; }
+.mat-mdc-row:hover { background: #f8f9ff !important; }
+.mat-mdc-paginator { background: white !important; color: #636e72 !important; }
+.mat-mdc-paginator-range-label { color: #636e72 !important; }
+
+/* ── Dialog ── */
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  background: white !important;
+  border-radius: 16px !important;
+  padding: 0 !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15) !important;
+}
+.mat-mdc-dialog-content { color: #2d3436 !important; padding: 0 24px !important; }
+
+/* ── Mat Select dropdown panel ── */
+.mat-mdc-select-panel { background: white !important; border-radius: 10px !important; box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important; }
+.mat-mdc-option { color: #2d3436 !important; font-family: 'Inter', sans-serif !important; }
+.mat-mdc-option:hover { background: #f8f9ff !important; }
+.mat-mdc-option.mdc-list-item--selected { background: #ede9ff !important; color: #6c63ff !important; }
+.mat-mdc-select-value-text { color: #2d3436 !important; }
+.mat-mdc-select-arrow { color: #6c63ff !important; }
+
+/* ── Form fields ── */
+.mat-mdc-form-field .mdc-text-field--outlined .mdc-notched-outline__leading,
+.mat-mdc-form-field .mdc-text-field--outlined .mdc-notched-outline__notch,
+.mat-mdc-form-field .mdc-text-field--outlined .mdc-notched-outline__trailing {
+  border-color: #e2e8f0 !important;
+}
+.mat-mdc-form-field .mdc-text-field--outlined:hover .mdc-notched-outline__leading,
+.mat-mdc-form-field .mdc-text-field--outlined:hover .mdc-notched-outline__notch,
+.mat-mdc-form-field .mdc-text-field--outlined:hover .mdc-notched-outline__trailing {
+  border-color: #6c63ff !important;
+}
+.mat-mdc-form-field .mdc-text-field--focused .mdc-notched-outline__leading,
+.mat-mdc-form-field .mdc-text-field--focused .mdc-notched-outline__notch,
+.mat-mdc-form-field .mdc-text-field--focused .mdc-notched-outline__trailing {
+  border-color: #6c63ff !important;
+}
+.mat-mdc-form-field .mdc-text-field { background: white !important; }
+.mat-mdc-input-element { color: #2d3436 !important; font-family: 'Inter', sans-serif !important; }
+.mdc-floating-label { color: #636e72 !important; font-family: 'Inter', sans-serif !important; }
+.mat-mdc-form-field-icon-suffix mat-icon { color: #6c63ff !important; }
+
+/* ── Datepicker ── */
+.mat-datepicker-content { background: white !important; border-radius: 12px !important; box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important; }
+.mat-calendar { background: white !important; }
+.mat-calendar-body-cell-content { color: #2d3436 !important; }
+.mat-calendar-body-selected { background: #6c63ff !important; color: white !important; }
+.mat-calendar-body-today { border-color: #6c63ff !important; }
+.mat-calendar-arrow { fill: #6c63ff !important; }
+.mat-calendar-next-button, .mat-calendar-previous-button { color: #6c63ff !important; }
+.mat-datepicker-toggle-active { color: #6c63ff !important; }
+.mat-datepicker-toggle .mat-mdc-icon-button { color: #6c63ff !important; }
+/* ── Category Form Dialog ── */
+.cform-wrap {
+  min-width: 420px;
+  background: white;
+}
+.cform-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+.cform-header h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2d3436;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+.cform-body {
+  padding: 20px 24px;
+}
+.field-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #2d3436;
+  margin-bottom: 8px;
+  font-family: 'Inter', sans-serif;
+}
+.cform-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 12px 24px 20px;
+  border-top: 1px solid #e2e8f0;
+}
+.cform-footer .btn-cancel {
+  padding: 9px 20px;
+  background: none;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  color: #636e72;
+}
+.cform-footer .btn-cancel:hover { background: #f5f5f5; }
+.cform-footer .btn-save {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 24px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+.cform-footer .btn-save:disabled { opacity: 0.6; cursor: not-allowed; }
+.close-btn {
+  width: 32px;
+  height: 32px;
+  background: #f5f5f5;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #636e72;
+}
+.close-btn:hover { background: #e0e0e0; }

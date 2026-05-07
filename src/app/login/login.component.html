@@ -1,0 +1,56 @@
+<div class="auth-wrapper">
+  <div class="left-panel">
+    <div class="brand">
+      <div class="brand-icon"><mat-icon>event</mat-icon></div>
+      <h1>Event Planner</h1>
+    </div>
+    <p class="brand-tagline">Découvrez et réservez les meilleurs événements près de chez vous</p>
+    <div class="features">
+      <div class="feature-item">
+        <mat-icon>verified</mat-icon>
+        <span>Accédez à des milliers d'événements vérifiés</span>
+      </div>
+      <div class="feature-item">
+        <mat-icon>confirmation_number</mat-icon>
+        <span>Réservez facilement vos places en ligne</span>
+      </div>
+      <div class="feature-item">
+        <mat-icon>notifications</mat-icon>
+        <span>Recevez des notifications personnalisées</span>
+      </div>
+    </div>
+  </div>
+  <div class="right-panel">
+    <div class="form-card">
+      <h2>Connexion</h2>
+      <p class="form-subtitle">Connectez-vous pour accéder à votre compte</p>
+      <div class="alert-error" *ngIf="errorMessage">
+        <mat-icon>error_outline</mat-icon> {{ errorMessage }}
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input [(ngModel)]="email" type="email" placeholder="votre@email.com" class="form-input" />
+      </div>
+      <div class="form-group">
+        <label>Mot de passe</label>
+        <div class="input-wrapper">
+          <input [(ngModel)]="password" [type]="hide ? 'password' : 'text'" placeholder="••••••••" class="form-input" />
+          <button class="toggle-pass" (click)="hide = !hide" type="button">
+            <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="form-options">
+        <label class="checkbox-label"><input type="checkbox" /> Se souvenir de moi</label>
+        <a href="#" class="forgot-link">Mot de passe oublié ?</a>
+      </div>
+      <button class="btn-primary" (click)="Login()" [disabled]="loading">
+        <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
+        <span *ngIf="!loading">Se connecter</span>
+      </button>
+      <p class="switch-link">
+        Vous n'avez pas de compte ? <a routerLink="/register">Créer un compte</a>
+      </p>
+    </div>
+  </div>
+</div>
