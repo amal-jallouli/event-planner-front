@@ -1,11 +1,9 @@
 {
-  "buildCommand": "npm run build -- --configuration production",
   "outputDirectory": "dist/event-planner",
-  "framework": "angular",
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
