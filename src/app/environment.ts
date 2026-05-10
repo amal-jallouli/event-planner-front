@@ -1,5 +1,5 @@
 export const environment = {
-  apiUrl: '/api/v1',
+  apiUrl: 'http://localhost:8000/api/v1',
   firebase: {
     apiKey: 'AIzaSyBxU19yFeBX4X5Jq03DDT9InyMt864Bj3o',
     authDomain: 'eventplanner-91e0b.firebaseapp.com',
