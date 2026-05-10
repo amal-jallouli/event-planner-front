@@ -6,7 +6,7 @@
       "destination": "https://event-planner-api.fwh.is/api/:path*"
     },
     {
-      "source": "/(.*)",
+      "source": "/((?!api)(?!.*\\.).*)",
       "destination": "/index.html"
     }
   ]
