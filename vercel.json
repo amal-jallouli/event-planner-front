@@ -1,13 +1,16 @@
 {
   "outputDirectory": "dist/event-planner",
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/:path*",
-      "destination": "https://event-planner-api.fwh.is/api/:path*"
+      "src": "/api/(.*)",
+      "dest": "https://event-planner-api.fwh.is/api/$1"
     },
     {
-      "source": "/((?!api)(?!.*\\.).*)",
-      "destination": "/index.html"
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
