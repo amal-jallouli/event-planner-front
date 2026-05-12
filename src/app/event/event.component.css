@@ -2,62 +2,59 @@
 .page-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 24px; }
 .page-title { font-size: 22px; font-weight: 700; color: #2d3436; }
 .page-subtitle { font-size: 13px; color: #636e72; margin-top: 3px; }
-.btn-create {
-  display: flex; align-items: center; gap: 6px;
-  padding: 10px 20px;
-  background: var(--gradient);
-  color: white; border: none; border-radius: 10px;
-  font-size: 14px; font-weight: 600; cursor: pointer;
-  font-family: 'Inter', sans-serif;
-}
+.btn-create { display: flex; align-items: center; gap: 6px; padding: 10px 20px; background: var(--gradient); color: white; border: none; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; }
 .btn-create:hover { opacity: 0.9; }
-.card {
-  background: white;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow: hidden;
+.card { background: white; border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+
+/* ── Filter Bar ── */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e2e8f0;
+  flex-wrap: wrap;
 }
+.filter-icon { color: #6c63ff; font-size: 20px; width: 20px; height: 20px; }
+.filter-label { font-size: 13px; font-weight: 600; color: #636e72; white-space: nowrap; }
+.category-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip {
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1.5px solid #e2e8f0;
+  background: white;
+  font-size: 13px;
+  font-weight: 500;
+  color: #636e72;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s;
+}
+.chip:hover { border-color: #6c63ff; color: #6c63ff; background: #ede9ff; }
+.chip.active { background: #6c63ff; color: white; border-color: #6c63ff; }
+
+/* ── Table ── */
 .data-table { width: 100%; }
 
 ::ng-deep .data-table .mat-mdc-header-cell {
-  font-size: 13px !important;
-  font-weight: 600 !important;
+  font-size: 13px !important; font-weight: 600 !important;
   color: #636e72 !important;
   border-bottom: 1px solid #e2e8f0 !important;
-  padding: 14px 16px !important;
-  background: white !important;
+  padding: 14px 16px !important; background: white !important;
 }
 ::ng-deep .data-table .mat-mdc-cell {
-  font-size: 14px !important;
-  color: #2d3436 !important;
+  font-size: 14px !important; color: #2d3436 !important;
   padding: 14px 16px !important;
   border-bottom: 1px solid #f0f0f0 !important;
 }
 
 .bold { font-weight: 500; color: #2d3436; }
-.tag {
-  background: var(--primary-light);
-  color: var(--primary);
-  padding: 3px 10px; border-radius: 20px;
-  font-size: 12px; font-weight: 500;
-}
-.badge-free {
-  background: #e8f5e9; color: #2e7d32;
-  padding: 3px 10px; border-radius: 20px;
-  font-size: 12px; font-weight: 500;
-}
-.status-badge {
-  padding: 4px 10px; border-radius: 20px;
-  font-size: 12px; font-weight: 500;
-  background: #f0f0f0; color: #666;
-}
+.tag { background: var(--primary-light); color: var(--primary); padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 500; }
+.badge-free { background: #e8f5e9; color: #2e7d32; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 500; }
+.status-badge { padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 500; background: #f0f0f0; color: #666; }
 .status-badge.actif { background: #e8f5e9; color: #2e7d32; }
 .actions-cell { display: flex; gap: 6px; align-items: center; }
-.action-btn {
-  width: 32px; height: 32px;
-  border: none; border-radius: 8px;
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
-}
+.action-btn { width: 32px; height: 32px; border: none; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 .action-btn mat-icon { font-size: 17px; width: 17px; height: 17px; }
 .action-btn.view { background: #e3f2fd; color: #1565c0; }
 .action-btn.edit { background: var(--primary-light); color: var(--primary); }

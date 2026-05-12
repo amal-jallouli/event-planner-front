@@ -21,6 +21,8 @@ export class EventComponent implements OnInit, AfterViewInit {
   dataSource: MatTableDataSource<EventModel> = new MatTableDataSource<EventModel>();
   displayedColumns: string[] = ['id', 'title', 'category', 'start_date', 'place', 'capacity', 'status', 'actions'];
   categories: Category[] = [];
+  allEvents: EventModel[] = [];
+  selectedCategory: string = '';
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -41,16 +43,28 @@ export class EventComponent implements OnInit, AfterViewInit {
 
   fetchEvents(): void {
     this.ES.GetAllEvents().subscribe((response: any) => {
-      this.dataSource.data = response.data || response;
+      this.allEvents = response.data || response;
+      this.dataSource.data = this.allEvents;
+      this.applyCategoyFilter();
     });
   }
 
-  applyFilter(event: any): void {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  applyCategoyFilter(): void {
+    if (this.selectedCategory === '') {
+      this.dataSource.data = this.allEvents;
+    } else {
+      this.dataSource.data = this.allEvents.filter(
+        e => e.category?.name === this.selectedCategory
+      );
+    }
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  onCategoryChange(value: string): void {
+    this.selectedCategory = value;
+    this.applyCategoyFilter();
   }
 
   ngAfterViewInit(): void {
